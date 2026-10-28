@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .balance-card { background: white; margin: 16px; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.02); position: relative; }
+    .balance-label { font-size: 11px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+    .balance-amount { font-size: 22px; font-weight: 800; color: #0f172a; }
+    .eye-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: #64748b; cursor: pointer; }
+    
+    .btn-cobrar-grandioso { background-color: #2563eb; color: white; margin: 0 16px 16px 16px; padding: 18px; border-radius: 12px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 18px; font-weight: 800; tracking-spacing: 0.5px; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(37,99,235,0.2); }
+    .btn-cobrar-grandioso:hover { background-color: #1d4ed8; }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px 16px 16px; }
+    .grid-item { background: white; padding: 20px 12px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; }
+    .grid-icon { font-size: 24px; }
+    .grid-text { font-size: 12px; font-weight: 700; color: #334155; line-height: 1.2; }
+</style>
+
+<!-- Cabecera de Inicio -->
+<div class="header-app">
+    <div class="header-title">
+        <span>🏪</span> Pago Confirmado
+    </div>
+    <div style="font-size: 18px; cursor: pointer;">🔔</div>
+</div>
+
+<!-- Tarjeta de Saldo Disponible -->
+<div class="balance-card">
+    <p class="balance-label">Saldo disponible</p>
+    <p class="balance-amount">S/ 820.00</p>
+    <span class="eye-icon">👁️</span>
+</div>
+
+<!-- Botón Central COBRAR -->
+<a href="/cobrar" class="btn-cobrar-grandioso">
+    <span>🔲</span> COBRAR
+</a>
+
+    <!-- Cuadrícula de Funciones enlazada a las páginas independientes -->
+    <div class="menu-grid">
+        <a href="/historial" class="grid-item" style="text-decoration: none;">
+            <span class="grid-icon">📄</span>
+            <span class="grid-text">Historial de operaciones</span>
+        </a>
+        <div class="grid-item">
+            <span class="grid-icon">💡</span>
+            <span class="grid-text">Pagar servicios</span>
+        </div>
+        <a href="/perfil" class="grid-item" style="text-decoration: none;">
+            <span class="grid-icon">👤</span>
+            <span class="grid-text">Mi perfil</span>
+        </a>
+        <div class="grid-item">
+            <span class="grid-icon">❓</span>
+            <span class="grid-text">Ayuda</span>
+        </div>
+    </div>
+
+{% endblock %}

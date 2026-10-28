@@ -1,0 +1,164 @@
+:root {
+    --verde: #176b4d;
+    --verde-oscuro: #104d39;
+    --verde-claro: #e8f5ee;
+    --fondo: #f4f7f5;
+    --texto: #1e2d27;
+    --secundario: #65736c;
+    --borde: #dce6e0;
+    --blanco: #ffffff;
+    --rojo-fondo: #fff0ef;
+    --rojo-texto: #9b2c2c;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+
+.contenedor {
+    width: min(1100px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+.encabezado {
+    background: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+    padding: 18px 0;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    background: var(--verde);
+    color: var(--blanco);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.marca h1 { margin: 0; font-size: 1.35rem; }
+.marca p { margin: 2px 0 0; color: var(--secundario); font-size: .92rem; }
+
+main.contenedor { padding-top: 30px; padding-bottom: 22px; }
+
+.bienvenida { margin-bottom: 22px; }
+.etiqueta {
+    color: var(--verde);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px;
+}
+.bienvenida h2 { margin: 0 0 8px; font-size: clamp(1.65rem, 4vw, 2.25rem); }
+.bienvenida p:last-child { margin-top: 0; color: var(--secundario); }
+
+.panel {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 20px rgba(24, 55, 40, .04);
+}
+.panel h2 { margin: 0 0 8px; font-size: 1.2rem; }
+.panel-titulo p { margin: 0 0 16px; color: var(--secundario); font-size: .92rem; }
+.nota {
+    background: #fff8e8;
+    border-left: 4px solid #d69b22;
+    padding: 12px 14px;
+    color: #684b12;
+    border-radius: 5px;
+    font-size: .92rem;
+}
+
+form { display: grid; gap: 10px; max-width: 460px; margin-top: 18px; }
+label { font-weight: 700; font-size: .94rem; }
+input {
+    width: 100%;
+    border: 1px solid #cbd8d0;
+    border-radius: 9px;
+    padding: 13px 14px;
+    font-size: 1rem;
+    background: #fff;
+}
+input:focus {
+    outline: 3px solid rgba(23, 107, 77, .15);
+    border-color: var(--verde);
+}
+button {
+    border: 0;
+    border-radius: 9px;
+    background: var(--verde);
+    color: #fff;
+    font-weight: 700;
+    font-size: .98rem;
+    padding: 13px 17px;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+button:hover { background: var(--verde-oscuro); }
+button:focus-visible { outline: 3px solid #9bcbb5; outline-offset: 2px; }
+
+.mensaje {
+    padding: 12px 15px;
+    border-radius: 9px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+.mensaje.success { background: var(--verde-claro); color: var(--verde-oscuro); }
+.mensaje.error { background: var(--rojo-fondo); color: var(--rojo-texto); }
+
+.tabla-contenedor { width: 100%; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 650px; }
+th, td { padding: 13px 12px; text-align: left; border-bottom: 1px solid #edf1ee; }
+th {
+    color: var(--secundario);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    background: #f8faf9;
+}
+td { font-size: .92rem; }
+.estado {
+    display: inline-block;
+    background: var(--verde-claro);
+    color: var(--verde-oscuro);
+    border-radius: 999px;
+    padding: 4px 9px;
+    font-size: .75rem;
+    font-weight: 800;
+}
+.vacio { text-align: center; padding: 30px 12px; color: var(--secundario); }
+.vacio h3 { margin: 8px 0 4px; color: var(--texto); }
+.vacio p { margin: 0; }
+.vacio-icono {
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    color: var(--verde);
+    font-size: 1.4rem;
+}
+.pie { color: var(--secundario); font-size: .85rem; padding: 8px 0 26px; }
+
+@media (max-width: 600px) {
+    .panel { padding: 18px; }
+    .marca h1 { font-size: 1.15rem; }
+}

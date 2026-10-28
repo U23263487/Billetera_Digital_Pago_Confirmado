@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Mi Perfil - Pago Confirmado{% endblock %}
+
+{% block content %}
+<style>
+    .profile-header { text-align: center; padding: 24px 16px; background: white; border-bottom: 1px solid #e2e8f0; }
+    .avatar { width: 70px; height: 70px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 12px auto; display: flex; align-items: center; justify-content: center; font-size: 32px; border: 3px solid #2563eb; }
+    .profile-info-box { background: white; margin: 16px; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 14px; }
+    .info-row { display: flex; justify-content: space-between; border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; font-size: 13px; }
+    .info-label { font-weight: bold; color: #64748b; }
+    .info-value { font-weight: 800; color: #1e293b; }
+</style>
+
+<div class="header-app">
+    <div class="header-title"><span>👤</span> Perfil del Comerciante</div>
+    <a href="/" style="text-decoration: none; font-size: 13px; font-weight: bold; color: #2563eb;">Volver</a>
+</div>
+
+<div class="profile-header">
+    <div class="avatar">👨🏽‍🌾</div>
+    <h3 style="font-size: 16px; font-weight: 800; color: #0f172a;">Carlos Mendoza Espinoza</h3>
+    <p style="font-size: 11px; color: #2563eb; font-weight: 700; background: #eff6ff; display: inline-block; padding: 2px 8px; border-radius: 10px; margin-top: 4px;">
+        Perfil Medio - Uso Estándar TI
+    </p>
+</div>
+
+<div class="profile-info-box">
+    <div class="info-row"><span class="info-label">Giro de Negocio:</span><span class="info-value">Abarrotes y Distribución</span></div>
+    <div class="info-row"><span class="info-label">Mercado Popular:</span><span class="info-value">Mercado Central - Lima Norte</span></div>
+    <div class="info-row"><span class="info-label">ID de Comercio:</span><span class="info-value">商-2026-34949</span></div>
+    <div class="info-row"><span class="info-label">Estado de Cuenta:</span><span class="info-value" style="color: #10b981;">Verificado ✓</span></div>
+</div>
+
+    <!-- Cuadrícula de Funciones enlazada a las páginas independientes -->
+    <div class="menu-grid">
+        <a href="/historial" class="grid-item" style="text-decoration: none;">
+            <span class="grid-icon">📄</span>
+            <span class="grid-text">Historial de operaciones</span>
+        </a>
+        <div class="grid-item">
+            <span class="grid-icon">💡</span>
+            <span class="grid-text">Pagar servicios</span>
+        </div>
+        <a href="/perfil" class="grid-item" style="text-decoration: none;">
+            <span class="grid-icon">👤</span>
+            <span class="grid-text">Mi perfil</span>
+        </a>
+        <div class="grid-item">
+            <span class="grid-icon">❓</span>
+            <span class="grid-text">Ayuda</span>
+        </div>
+    </div>
+
+
+
+{% endblock %}

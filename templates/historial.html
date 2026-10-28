@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Historial y Rendimiento - Pago Confirmado{% endblock %}
+
+{% block content %}
+<style>
+    .balance-card { background: white; margin: 16px; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    .balance-label { font-size: 11px; color: #64748b; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+    .balance-amount { font-size: 24px; font-weight: 800; color: #2563eb; }
+    
+    .chart-container { display: flex; align-items: flex-end; justify-content: space-between; height: 120px; padding: 16px 8px 4px 8px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 12px; }
+    .chart-bar { width: 24px; background: #cbd5e1; border-radius: 4px 4px 0 0; display: flex; align-items: flex-end; justify-content: center; position: relative; }
+    .chart-bar.active { background: #2563eb; }
+    .chart-label { font-size: 9px; font-weight: bold; color: #64748b; position: absolute; bottom: -16px; }
+
+    .history-card { background: white; margin: 16px; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0; flex: 1; display: flex; flex-direction: column; }
+    .history-list { display: flex; flex-direction: column; gap: 8px; max-height: 260px; overflow-y: auto; margin-top: 8px; }
+    .history-row { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8fafc; border-radius: 8px; font-size: 12px; border: 1px solid #f1f5f9; }
+</style>
+
+<div class="header-app">
+    <div class="header-title"><span>📊</span> Rendimiento y Ventas</div>
+    <a href="/" style="text-decoration: none; font-size: 13px; font-weight: bold; color: #2563eb;">Volver</a>
+</div>
+
+<div class="balance-card">
+    <p class="balance-label">Total Acumulado de Caja</p>
+    <p class="balance-amount">S/ {{ "%.2f"|format(total_ventas) }}</p>
+</div>
+
+<!-- Gráfico Semanal del informe -->
+<div style="background: white; margin: 0 16px 16px 16px; padding: 16px; border-radius: 12px; border: 1px solid #e2e8f0;">
+    <p class="balance-label">Movimiento Semanal</p>
+    <div class="chart-container">
+        <div class="chart-bar" style="height: 35%;"><span class="chart-label">Lu</span></div>
+        <div class="chart-bar" style="height: 50%;"><span class="chart-label">Ma</span></div>
+        <div class="chart-bar" style="height: 20%;"><span class="chart-label">Mi</span></div>
+        <div class="chart-bar active" style="height: 85%;"><span class="chart-label">Ju</span></div>
+        <div class="chart-bar" style="height: 45%;"><span class="chart-label">Vi</span></div>
+        <div class="chart-bar" style="height: 95%;"><span class="chart-label">Sá</span></div>
+        <div class="chart-bar" style="height: 15%;"><span class="chart-label">Do</span></div>
+    </div>
+    <p style="font-size: 10px; color: #94a3b8; text-align: center; margin-top: 24px; font-weight: 600;">
+        💡 Los Sábados registran tu mayor pico de ventas.
+    </p>
+</div>
+
+<!-- Lista completa de transacciones -->
+<div class="history-card">
+    <p class="balance-label" style="border-bottom: 1px solid #f1f5f9; padding-bottom: 4px;">Operaciones de hoy</p>
+    <div class="history-list">
+        {% if transacciones %}
+            {% for t in transacciones %}
+            <div class="history-row">
+                <div>
+                    <strong style="color: #0f172a;">Cobro Recibido</strong>
+                    <p style="font-size: 10px; color: #94a3b8;">{{ t.fecha }}</p>
+                </div>
+                <span style="color: #10b981; font-weight: 800;">+S/ {{ "%.2f"|format(t.monto) }}</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; color: #94a3b8; font-size: 12px; padding: 20px;">Sin cobros registrados hoy.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
